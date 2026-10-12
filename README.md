@@ -17,7 +17,7 @@ Working:
 - Calculator performs simple functions.
 
 Still in progress:
-- I'm working on getting the keyboard functioning.
+- I'm working on getting the operators on the keyboard functioning.
 
 ## How to Run
 Built with Processing.
@@ -30,7 +30,7 @@ Mouse:
 Click on the number buttons to put them in the display. Click the operator buttons to perform the operation.
 
 Keyboard:
-Pressing the one through three keys will type their respective numbers.
+Pressing any number key will type their respective number.
 
 ## Project Files
 The main sketch is titled "Calculator".
@@ -39,4 +39,4 @@ The main sketch is titled "Calculator".
 I tested the decimal button by adding 1 plus 0.6. The expected result and the actual result were the same, 1.6.
 
 ## Next Step
-I would like to get all my key presses working and to prevent the display from going off the screen.
+I would like to get all my operator key presses working and to prevent the display from going off the screen.
