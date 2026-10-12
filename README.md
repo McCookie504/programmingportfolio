@@ -9,7 +9,7 @@
 [Link to Source Code](https://github.com/McCookie504/programmingportfolio/tree/main/src/Calculator)
 
 ## Overview
-OOP Calculator using Processing for graphics and Java for computer Programming
+OOP Calculator using Processing for graphics and Java for computer Programming.
 
 ## Current Status
 Working:
@@ -21,26 +21,22 @@ Still in progress:
 
 ## How to Run
 Built with Processing.
-Processing version: [Your version]
+Processing version: 4.0.1
 
-[After the project files are uploaded, identify the
-project folder and main .pde file to open and run.]
+The project folder is called calculator and the main .pde is called calculator.pde.
 
 ## Controls
 Mouse:
-[Explain how to use the buttons.]
+Click on the number buttons to put them in the display. Click the operator buttons to perform the operation.
 
 Keyboard:
-[List keys that currently work and what they do.
-Identify planned controls as not yet implemented.]
+Pressing the one through three keys will type their respective numbers.
 
 ## Project Files
-[Identify the main sketch and other tabs or assets
-you will upload.]
+The main sketch is titled "Calculator".
 
 ## Testing
-[Record one test: actions, expected result,
-and actual result.]
+I tested the decimal button by adding 1 plus 0.6. The expected result and the actual result were the same, 1.6.
 
 ## Next Step
-[Name the specific behavior you will build or fix next.]
+I would like to get all my key presses working and to prevent the display from going off the screen.
