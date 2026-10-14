@@ -33,7 +33,7 @@ void setup() {
   opButtons[2] = new Button(240, 220, 'x', 40);
   opButtons[3] = new Button(240, 280, '÷', 40);
   opButtons[4] = new Button(120, 280, '.', 40);
-  opButtons[5] = new Button(180, 280, '±', 40);
+  opButtons[5] = new Button(180, 280, ' ', 40);
   opButtons[6] = new Button(60, 340, ' ', 40);
   opButtons[7] = new Button(120, 340, '^', 40);
   opButtons[8] = new Button(180, 340, ' ', 40);
@@ -63,7 +63,12 @@ void updateDisplay() {
   //Overlay text
   fill(0);
   textAlign(RIGHT);
-  textSize(20);
+  if (displayVal.length()< 24) {
+    textSize(20);
+  } else if (displayVal.length()>24) {
+    textSize(15);
+  }
+
   text(displayVal, width-30, 45);
 }
 
@@ -86,7 +91,6 @@ void mouseReleased() {
   for (int i = 0; i < opButtons.length; i++) {
     if (opButtons[i].hover) {
       char clicked = opButtons[i].val;
-
       if (clicked == '=') {
         performCalc();
       } else if (clicked == 'C') {
@@ -164,6 +168,48 @@ void keyPressed() {
   } else if (key == '3') {
     println("You hit 3 " + keyCode);
     handleEvent('3', true);
+  } else if (key == '4') {
+    println("You hit 4 " + keyCode);
+    handleEvent('4', true);
+  } else if (key == '5') {
+    println("You hit 5 " + keyCode);
+    handleEvent('5', true);
+  } else if (key == '6') {
+    println("You hit 6 " + keyCode);
+    handleEvent('6', true);
+  } else if (key == '7') {
+    println("You hit 7 " + keyCode);
+    handleEvent('7', true);
+  } else if (key == '8') {
+    println("You hit 8 " + keyCode);
+    handleEvent('8', true);
+  } else if (key == '9') {
+    println("You hit 9 " + keyCode);
+    handleEvent('9', true);
+  } else if (key == '0') {
+    println("You hit 0 " + keyCode);
+    handleEvent('0', true);
+  } else if (key == '+') {
+    println("You hit + " + keyCode);
+    handleEvent('+', false);
+  } else if (key == '-') {
+    println("You hit - " + keyCode);
+    handleEvent('-', false);
+  } else if (key == 'x') {
+    println("You hit x " + keyCode);
+    handleEvent('x', false);
+  } else if (key == '/') {
+    println("You hit / " + keyCode);
+    handleEvent('÷', false);
+  } else if (keyCode == 10) {
+    println("You hit enter " + keyCode);
+    handleEvent('=', false);
+  } else if (key == '.') {
+    println("You hit . " + keyCode);
+    handleEvent('.', false);
+  } else if (keyCode == 8 || key == 'c') {
+    println("You hit backspace " + keyCode);
+    handleEvent('C', false);
   }
 }
 
@@ -184,6 +230,44 @@ void handleEvent(char val, boolean isNum) {
       r = float(displayVal);
     }
   } else {
-    // other stuff
+    char clicked = val;
+    if (clicked == '=') {
+      performCalc();
+    } else if (clicked == 'C') {
+      // reset all variables
+      displayVal = "0.0";
+      l = 0.0;
+      r = 0.0;
+      result = 0.0;
+      op = ' ';
+      left = true;
+      newEntry = true;
+    } else if (clicked == '^') {
+      if (left == true) {
+        l = sq(l);
+        displayVal = str(l);
+      } else {
+        r = sq(r);
+        displayVal = str(r);
+      }
+    } else if (clicked == '+' || clicked == '-' ||
+      clicked == 'x' || clicked == '÷') {
+      op = clicked;
+      left = false;
+      newEntry = true;
+      displayVal = str(op);
+    } else if (clicked == '±') {
+      //toggleSign();
+    } else if (clicked == '.') {
+      if (displayVal.contains(".") == false) {
+        if (left == true) {
+          displayVal += ".";
+          l = float(displayVal);
+        } else {
+          displayVal += ".";
+          r = float(displayVal);
+        }
+      }
+    }
   }
 }
